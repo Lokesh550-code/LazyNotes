@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "../utils/file.js";
 
 
-const add = async (id, title) => {
+export const add = async (id, title) => {
 
       const data =  await readFile();
 
@@ -21,5 +21,3 @@ const add = async (id, title) => {
             console.log(`Task failed!`);
       }
 }
-
-add(1, 'Helloworld');

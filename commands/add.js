@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "../utils/file.js";
+import chalk from "chalk";
 
 
 export const add = async (id, title) => {
@@ -10,14 +11,14 @@ export const add = async (id, title) => {
       arr.push({id: id, title: title});
       await writeFile(arr);
       
-      console.log(arr[0], `array`)
+      // console.log(arr[0], `array`) // if statement was not running so console.logged to see where the code was broken
       const checkItemAdded = await readFile();
-      console.log(checkItemAdded[0], `json`)
+      // console.log(checkItemAdded[0], `json`) // same applies here aswell as teh first console.log
 
       if(arr[id-1].id == checkItemAdded[id-1].id) {
-            console.log(`Task added: ${checkItemAdded[id -1].title}`);
+            console.log(`${chalk.greenBright.bold(`Task added:`)} ${checkItemAdded[id -1].title}`);
       }
       else {
-            console.log(`Task failed!`);
+            console.log(chalk.redBright.bold(`Task failed!`));
       }
 }

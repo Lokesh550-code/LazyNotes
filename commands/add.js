@@ -10,9 +10,16 @@ const add = async (id, title) => {
       arr.push({id: id, title: title});
       await writeFile(arr);
       
+      console.log(arr[0], `array`)
       const checkItemAdded = await readFile();
+      console.log(checkItemAdded[0], `json`)
 
-      console.log(`Task Added: ${checkItemAdded[id-1].title}`);
+      if(arr[id-1].id == checkItemAdded[id-1].id) {
+            console.log(`Task added: ${checkItemAdded[id -1].title}`);
+      }
+      else {
+            console.log(`Task failed!`);
+      }
 }
 
-add(3, 'Helloworld');
+add(1, 'Helloworld');

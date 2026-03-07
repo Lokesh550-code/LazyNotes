@@ -8,12 +8,12 @@ LazyNotes lets you quickly create, view, update, and delete notes directly from 
 
 ## Features
 
-* Add notes from the terminal
-* List all saved notes in a clean formatted view
-* Update existing notes
-* Delete notes by ID
+* Add tasks from the terminal
+* List all saved tasks in a clean formatted view
+* Update existing tasks
+* Delete tasks by ID
 * Colorful CLI output for readability
-* Works with or without quotes for multi-word notes
+* Works with or without quotes for multi-word tasks
 
 ---
 
@@ -35,7 +35,7 @@ npm install -g lazynotes
 lazynotes help
 ```
 
-### Add a note
+### Add a Task
 
 ```bash
 lazynotes add "Buy milk"
@@ -81,10 +81,10 @@ lazynotes delete 2
 
 | Command  | Description             |
 | -------- | ----------------------- |
-| `add`    | Add a new note          |
-| `list`   | Show all notes          |
-| `update` | Update an existing note |
-| `delete` | Delete a note by ID     |
+| `add`    | Add a new tasks         |
+| `list`   | Show all tasks          |
+| `update` | Update an existing task |
+| `delete` | Delete a task by ID     |
 | `help`   | Show help information   |
 
 ---
@@ -103,7 +103,7 @@ lazynotes delete 2
 
 ## How It Works
 
-LazyNotes stores notes in a local JSON file.
+LazyNotes stores tasks in a local JSON file.
 Each note is assigned a unique ID and managed through CLI commands.
 
 ---

@@ -6,6 +6,11 @@ export const update = async (id, updatedTask) => {
 
       const data = await readFile();
 
+      if(data.length - 1 < id) {
+            console.log(chalk.bold.redBright(`Please enter a valid Task Id.`));
+            return;
+      }
+
       data.splice(id-1, 1, {id: id, title: updatedTask});
 
       await writeFile(data);

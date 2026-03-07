@@ -1,18 +1,23 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 
-const fileName = fileURLToPath(import.meta.url); // node js removed the global variable __dirName, so manually created the variable
-const dirName = path.dirname(fileName);
+const dirPath = path.join(os.homedir(), ".lazynotes");
+const filePath = path.join(dirPath, "tasks.json");
 
-const absolpath = path.join(dirName, '../data/tasks.json');
-// console.log(absolpath) // the read func was not printing the log in try block so wrote it to check if file path is correct or not.
+// ensure directory exists
+await fs.mkdir(dirPath, { recursive: true });
 
+// ensure file exists
+try {
+  await fs.access(filePath);
+} catch {
+  await fs.writeFile(filePath, "[]");
+}
 
 export const readFile  =  async () => {
       try {
-            const data = await fs.readFile(`${absolpath}`, 'utf-8');
-            // console.log("Reading from: ", absolpath); // was having error as to why read func is giving an empty array
+            const data = await fs.readFile(`${filePath}`, 'utf-8');
             return JSON.parse(data);
       } catch (err){
 
@@ -27,7 +32,7 @@ export const readFile  =  async () => {
 export const writeFile = async (data) => {
       try {
             const obj = JSON.stringify(data, null, 2);
-            await fs.writeFile(absolpath, obj, 'utf-8',);
+            await fs.writeFile(filePath, obj, 'utf-8',);
       } catch (err) {
             console.log("Error: ",err);
       }

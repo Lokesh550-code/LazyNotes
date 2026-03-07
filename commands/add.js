@@ -7,17 +7,20 @@ export const add = async (title) => {
 
       const data =  await readFile();
 
-      const arr = [...data];
+      if(title === "") {
+            console.log(chalk.bold.redBright(`Error: Task text required.`));
+            return;
+      }
 
-      arr.push({id: await index(), title: title});
-      await writeFile(arr);
+      data.push({id: await index(), title: title});
+      await writeFile(data);
       
       // console.log(arr[0], `array`) // if statement was not running so console.logged to see where the code was broken
       const checkItemAdded = await readFile();
       // console.log(checkItemAdded[0], `json`) // same applies here aswell as teh first console.log
 
-      if(arr[arr.length-1].id === checkItemAdded[checkItemAdded.length-1].id) {
-            console.log(`${chalk.greenBright.bold(`Task added:`)} ${checkItemAdded[arr.length -1].title}`);
+      if(data[data.length-1].id === checkItemAdded[checkItemAdded.length-1].id) {
+            console.log(`${chalk.green.bold(`Task added:`)} ${checkItemAdded[data.length -1].title}`);
       }
       else {
             console.log(chalk.redBright.bold(`Task failed!`));

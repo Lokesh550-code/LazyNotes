@@ -3,6 +3,6 @@ import { readFile } from "./file.js";
 export const index = async() => {
     let data = await readFile();
 
-    let index  = data.length;
+    let index  = data.length + 1;
     return index;
 }

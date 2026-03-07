@@ -7,8 +7,10 @@ export const list = async () => {
       if(tasks.length === 0){
             console.log(chalk.redBright(`There is no task. Please add one.`));
       }else{
+            console.log(chalk.blueBright.bold(`LazyNotes`));
+            console.log(chalk.blueBright(`---------`));
             tasks.forEach((task, id) => {
-                  console.log(`${chalk.rgb(71, 114, 244).bold(`ID:`)} ${id + 1} ${chalk.rgb(71, 114, 244).bold(`Task:`)} ${task.title}`);
+                  console.log(`${chalk.blueBright.bold(`${id + 1}.`)} ${task.title}`);
             });
       }
 }

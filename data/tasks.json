@@ -1,22 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Buy Milk"
+    "title": "Buy milk"
   },
   {
     "id": 2,
-    "title": "Buy Milk"
+    "title": "Eat"
   },
   {
     "id": 3,
-    "title": "Buy Milk"
-  },
-  {
-    "id": 4,
-    "title": "Work on the index"
-  },
-  {
-    "id": 5,
-    "title": "update other functions"
+    "title": "Study maths"
   }
 ]

@@ -24,10 +24,12 @@ export const update = async (id, updatedTask) => {
       // console.log(updatedData);
       // console.log(data);
       
-      if(data[id -1].title == updatedData[id- 1].title) {
+      if(data[data.length -1].title == updatedData[updatedData.length -1].title) {
             console.log(chalk.greenBright.bold(`Task updated.`));
-            console.log(`${chalk.blueBright.bold(`Updated task: `)}${updatedData[id -1].title}`);
-      } else if (data[id -1].title != updatedData[id - 1].title) {
+            console.log(`${chalk.blueBright.bold(`Updated task: `)}${updatedData[updatedData.length -1].title}`);
+      } else if (data[updatedData.length -1].title != updatedData[updatedData.length -1].title) {
             console.log(chalk.redBright.bold(`Task upddation failed.`));
       }
 }
+
+update(0, 'Fixed the CLI');

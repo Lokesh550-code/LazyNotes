@@ -8,12 +8,7 @@ import { update } from "../commands/update.js";
 import chalk from "chalk";
 
 let command = process.argv[2];
-if (command !== "") {
-    command = command.toLowerCase();
-}
 let text = process.argv.slice(3).join(` `);
-    text = text.trim();
-
 
 if(!command) {
     help();

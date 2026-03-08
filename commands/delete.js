@@ -34,5 +34,3 @@ export const deletetask = async(id) => {
             console.log(chalk.redBright.bold('Deletion failed'));
       }
 }
-
-deletetask(1);

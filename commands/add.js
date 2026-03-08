@@ -26,4 +26,3 @@ export const add = async (title) => {
             console.log(chalk.redBright.bold(`Task failed!`));
       }
 }
-add('Remove some features for now');

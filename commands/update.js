@@ -31,5 +31,3 @@ export const update = async (id, updatedTask) => {
             console.log(chalk.redBright.bold(`Task upddation failed.`));
       }
 }
-
-update(0, 'Fixed the CLI');

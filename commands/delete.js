@@ -5,7 +5,7 @@ import chalk from "chalk";
 export const deletetask = async(id) => {
       const data = await readFile();
 
-      if(data.length - 1 < id - 1 || typeof id !== 'number') {
+      if(data.length - 1 < id - 1) {
             console.log(chalk.bold.redBright(`Please enter a valid Task Id.`));
             return;
       }
@@ -34,3 +34,5 @@ export const deletetask = async(id) => {
             console.log(chalk.redBright.bold('Deletion failed'));
       }
 }
+
+deletetask(1);

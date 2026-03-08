@@ -7,7 +7,10 @@ import { list } from "../commands/list.js";
 import { update } from "../commands/update.js";
 import chalk from "chalk";
 
-const command = process.argv[2].toLowerCase();
+const command = process.argv[2];
+if (command !== "") {
+    command = command.trim();
+}
 let text = process.argv.slice(3).join(` `);
     text = text.trim();
 
@@ -19,9 +22,11 @@ if(!command) {
 } else if (command === 'list' || command === 'ls') {
     list();
 } else if (command === 'delete') {
-    deletetask(process.argv[3]);
+    const arg = Number(process.argv[3]);
+    deletetask(arg);
 }else if (command === 'update') {
-    update(process.argv[3]);
+    const arg = Number(process.argv[3]);
+    update(arg);
 } else if (command === 'help') {
     help();
 } else {

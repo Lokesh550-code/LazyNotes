@@ -7,9 +7,9 @@ import { list } from "../commands/list.js";
 import { update } from "../commands/update.js";
 import chalk from "chalk";
 
-const command = process.argv[2];
+let command = process.argv[2];
 if (command !== "") {
-    command = command.trim();
+    command = command.toLowerCase();
 }
 let text = process.argv.slice(3).join(` `);
     text = text.trim();

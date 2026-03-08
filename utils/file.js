@@ -5,35 +5,29 @@ import path from "node:path";
 const dirPath = path.join(os.homedir(), ".lazynotes");
 const filePath = path.join(dirPath, "tasks.json");
 
-// ensure directory exists
-await fs.mkdir(dirPath, { recursive: true });
+export async function ensureStorage() {
+  await fs.mkdir(dirPath, { recursive: true });
 
-// ensure file exists
-try {
-  await fs.access(filePath);
-} catch {
-  await fs.writeFile(filePath, "[]");
+  try {
+    const data = await fs.readFile(filePath, "utf8");
+
+    if (!data.trim()) {
+      await fs.writeFile(filePath, "[]");
+    }
+  } catch {
+    await fs.writeFile(filePath, "[]");
+  }
 }
 
-export const readFile  =  async () => {
-      try {
-            const data = await fs.readFile(`${filePath}`, 'utf-8');
-            return JSON.parse(data);
-      } catch (err){
+export async function readFile() {
+  await ensureStorage();
 
-            if(err.code === 'ENOENT'){
-                  return [];
-            }
-            console.error(err);
-            return [];
-      }
+  const data = await fs.readFile(filePath, "utf8");
+  return JSON.parse(data);
 }
 
-export const writeFile = async (data) => {
-      try {
-            const obj = JSON.stringify(data, null, 2);
-            await fs.writeFile(filePath, obj, 'utf-8',);
-      } catch (err) {
-            console.log("Error: ",err);
-      }
+export async function writeFile(data) {
+  await ensureStorage();
+
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
 }

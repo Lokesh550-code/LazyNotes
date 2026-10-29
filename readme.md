@@ -1,8 +1,8 @@
 # LazyNotes
 
-A simple, lightweight command-line notes manager built with Node.js.
+A simple, lightweight command-line task manager built with Node.js.
 
-LazyNotes lets you quickly create, view, update, and delete notes directly from your terminal. It is designed to be minimal, fast, and easy to use.
+LazyNotes lets you quickly create, view, update, and delete tasks directly from your terminal. It is designed to be minimal, fast, and easy to use.
 
 ---
 
